@@ -1,0 +1,377 @@
+body {
+	
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-image:url("download.jpg.jfif");
+	min-height: 100vh;
+ 
+}
+		
+		
+header {
+	padding: 30px;
+	text-align: center;
+ }
+
+#img1{
+	width:10%;
+	float: right;
+	filter: brightness(150%);
+    border-radius:50%;
+	opacity:4px; 
+	position: fixed;
+	top:90%;
+	left:90%;
+	top: 0;
+	}
+		
+.navbar {
+    overflow: hidden;
+	justify-content: space-around;
+    background-color: #333;
+	font-size: 18px;
+	margin: -20px;
+	padding: 12px;
+    list-style-type: none;
+    width:101%;
+}
+		
+.navbar a {
+	float: left;
+   display: block;
+   color: #F7BC6D;
+   text-align: center;
+   padding: 14px 30px;
+   text-decoration: none;
+
+        }
+ .navbar a:hover {
+    background: #997D2B;
+     color: black;
+        }
+
+		
+		
+h4{
+	font-size: 30px;
+	float: none;
+	text-align: center;
+	background:  chocolate;
+	max-width: 550px;
+	margin: 5px auto;
+	padding: 20px;
+	font-family:"allura";
+}		
+		
+h1{
+	padding: 10px;
+    margin-bottom: 10px;
+	display: flex;
+	text-align: center;
+	font-size: 50px;
+	float: none;
+	filter: drop-shadow(8px 20px 10px );
+	color:orange;
+	justify-content: space-around;
+    
+		}		
+		
+.menu1{
+   
+   margin: 40px ;
+   float: left;
+	}
+
+	.menu1 img {
+       width: 200px;
+       height: 200px;
+	   border-radius:60%;
+	   opacity:4px; 
+	
+		}
+
+  .menu {
+   
+     margin: 40px ;
+     float: left;
+	  }
+
+ .menu img {
+       width: 200px;
+       height: 200px;
+	   border-radius:60%;
+	   opacity:4px; 
+	
+		}
+  .card {
+            background-color: #f2f2f2;
+            width: 200px;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+  .card:hover {
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+  .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px;
+        }
+        .cart-total {
+            margin: 10px;
+            padding: 10px;
+            background-color: #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+
+.navigation{
+	position: fixed;
+	inset: 0px;
+	background: #287bff;
+	width: 78px; 
+	border-right: 10px solid #287bff;
+	border-radius: 50px;
+	box-shadow: 15px 15px 25px rgba(0,0,0,0,0.5);
+	transition: 0.7s;
+	
+}
+
+.toggle{
+	position: absolute;
+	bottom: 15px;
+	left: 14px;
+	width: 50px;
+	height: 50px;
+	background: #fff;
+	border-radius: 50%;
+	box-shadow: 5px 5px 10px rgba(0,0,0,0.15);
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+}
+.toggle::before{
+	content: '';
+	position: absolute;
+	width: 26px;
+	height: 3px;
+	border-radius: 3px ;
+	background: #C29214;
+	transform: translateY(-5px);
+	transition: 0.7s;
+}
+
+.toggle::after{
+	content: '';
+	position: absolute;
+	width: 26px;
+	height: 3px;
+	border-radius: 3px ;
+	background: #C29214;
+	transform: translateY(5px);
+	transition: 0.7s;
+}
+
+.navigation.active{
+	width: 250px;
+	border-radius: 60px;
+}
+
+.navigation.active.toggle::before{
+	transform: translateY(0px) rotate(-405deg);
+}
+
+.navigation.active.toggle::after{
+	transform: translateY(0px) rotate(225deg);
+}
+
+.navigation ul{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+.navigation ul li{
+	position: relative;
+	list-style: none;
+	width: 100%;
+    border-radius: 0px 30px 0px;
+	
+}
+
+.navigation ul li:hover{
+	background: #EC4D4F;
+}
+
+.navigation ul li:nth-child(1){
+	top: 20px;
+	margin-bottom: 50px;
+	background: none;
+}
+
+.navigation ul li a{
+	position: relative;
+	width: 100%;
+	display: flex;
+	text-decoration: none;
+	color: #fff;
+}
+
+.navigation ul li:hover:not(:first-child) a{
+	color: #222;
+	
+}
+.navigation ul li a .icon{
+	position: relative;
+	display: flex;
+	justify-content:center;
+	align-items: center;
+	min-width: 60px;
+	height: 60px;
+	
+	
+}
+.navigation ul li a .icon ion-icon{
+	font-size: 1.75em;
+}
+
+.navigation ul li a ,title{
+	position: relative;
+	padding: 0px 10px;
+	height: 60px;
+	line-height: 60px;
+	text-align: start;
+	white-space: normal;
+	
+}
+
+
+.navigation ul li:not(:first-child):hover::before{
+	content: '';
+	position: absolute;
+	top: -20px;
+	left: 0px;
+	width: 27px;
+	height: 20px;
+	background: transparent;
+	border-radius: 0 0 0 20px;
+	/*box-shadow: -7.5px 7.5px 0 7.8px #fff;*/
+}
+.navigation ul li:not(:first-child):hover::after{
+	content: '';
+	position: absolute;
+	bottom: -20px;
+	left: 0px;
+	width: 27px;
+	height: 25px;
+	background: transparent;
+	border-radius: 20px 0 0 0 ;
+	/*box-shadow: -7.5px -7.5px 0 7.8px #fff;*/
+}
+
+ .image-container {
+    position: relative;
+    display: inline-block;
+        }
+
+      .container {
+	max-width: 1000px;
+	margin: 5px auto;
+	padding: 50px;
+    background-color: chocolate;
+}
+		
+.contact{
+      margin:10px auto;
+	 display: inline-block;
+	 justify-content: space-around;
+	 text-align: center;
+	
+		}		
+		
+	#img2{
+		width: 1220px;
+		height: 400px;
+		
+		
+		}
+		@media only screen and (max-width:700px){
+			h4{
+				width:auto;
+			}
+
+			#img2{
+				width: auto;
+	            border-radius:50%;
+	            opacity:4px; 
+	
+			}
+
+			.menu{
+				padding: 13px;
+				margin: 13px;
+
+			}
+
+			.menu1{
+				padding: 9px;
+				margin: 35px;
+			}
+
+		}	
+        @media only screen and (min-width:950px){
+			#img2{
+				width: 900px;
+				height: 450px;
+				border-radius:100%;
+	            opacity:4px; 
+			}
+
+			h4{
+				padding: auto;
+				margin-inline: auto;
+				
+
+			}
+			
+		}	
+		@media only screen and (min-width:1024px){
+			
+			#img2{
+				width: 1220px;
+				height: 550px;
+				border-radius:100%;
+	            opacity:4px; 
+			}
+			
+			.menu1{
+				padding: 16px;
+			}
+
+			.menu{
+				padding: 11px;
+			}
+
+
+		}	
+	
