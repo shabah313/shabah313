@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>رزرو میز - Don Vittorio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=Lora&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --black: #0a0a0a;
+        --silver: #c0c0c0;
+        --olive: #6b8e23;
+        --cream: #f5f0e6;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Lora", serif;
+        background: var(--black);
+        color: var(--cream);
+        overflow-x: hidden;
+      }
+      h1,
+      h2 {
+        font-family: "Playfair Display", serif;
+        color: var(--silver);
+      }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgb(24, 27, 17);
+        padding: 1rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid var(--silver);
+      }
+      .logo {
+        font-size: 2.4rem;
+        color: var(--silver);
+        font-family: "Cormorant Garamond";
+      }
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        font-size: 2rem;
+        color: var(--silver);
+      }
+      .nav-links a {
+        color: var(--cream);
+        text-decoration: none;
+        margin: 0 1.5rem;
+        transition: 0.3s;
+      }
+      .nav-links a:hover {
+        color: var(--olive);
+      }
+      @media (max-width: 992px) {
+        .nav-links {
+          position: absolute;
+          top: 100%;
+          right: 0;
+          left: 0;
+          background: var(--black);
+          flex-direction: column;
+          display: none;
+        }
+        .nav-links.active {
+          display: flex;
+        }
+        .nav-links a {
+          display: block;
+          padding: 1.2rem;
+          text-align: center;
+          border-bottom: 1px solid #222;
+        }
+        .hamburger {
+          display: block;
+        }
+      }
+
+      .hero {
+        height: 70vh;
+        background: linear-gradient(rgba(40, 63, 9, 0.95),  rgba(0, 0, 0, 0.9)),
+          url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920")
+            center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: 5.5rem;
+        letter-spacing: 8px;
+      }
+      .hero p {
+        font-size: 1.8rem;
+        margin-top: 1rem;
+      }
+
+      section {
+        padding: 100px 0;
+      }
+      .reserve-form {
+        background: rgba(20, 20, 20, 0.95);
+        padding: 3rem;
+        border-radius: 20px;
+        border: 1px solid var(--olive);
+        max-width: 700px;
+        margin: 0 auto;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+      }
+      .form-group {
+        margin-bottom: 1.8rem;
+      }
+      label {
+        display: block;
+        margin-bottom: 0.6rem;
+        color: var(--silver);
+        font-size: 1.1rem;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 16px;
+        background: #222;
+        border: 1px solid var(--silver);
+        border-radius: 12px;
+        color: white;
+        font-family: "Lora";
+        transition: 0.3s;
+      }
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: var(--olive);
+        outline: none;
+      }
+      button {
+        width: 100%;
+        padding: 18px;
+        background: var(--olive);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.3rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 1rem;
+      }
+      button:hover {
+        background: #8fbc8f;
+        transform: scale(1.02);
+      }
+      .success-msg {
+        display: none;
+        margin-top: 2rem;
+        padding: 1.5rem;
+        background: rgba(107, 142, 35, 0.2);
+        border: 1px solid var(--olive);
+        border-radius: 12px;
+        text-align: center;
+        color: var(--olive);
+        font-size: 1.2rem;
+      }
+
+      footer {
+        background: #111;
+        padding: 3rem;
+        text-align: center;
+        border-top: 3px solid var(--olive);
+      }
+      .social-links a {
+        color: var(--silver);
+        font-size: 2.4rem;
+        margin: 0 1.5rem;
+        transition: 0.3s;
+      }
+      .social-links a:hover {
+        color: var(--olive);
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">Don Vittorio</div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">خانه</a>
+        <a href="menu.html">منو</a>
+        <a href="reserve.html">رزرو میز</a>
+        <a href="index.html#contact">تماس</a>
+      </div>
+      <div
+        class="hamburger"
+        onclick="document.getElementById('navLinks').classList.toggle('active')"
+      >
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div>
+        <h1>رزرو میز</h1>
+        <p>لحظه‌های خاص خود را با ما تجربه کنید</p>
+      </div>
+    </div>
+    <section class="container">
+      <div class="reserve-form">
+        <form action="https://formspree.io/f/mkgybbkz" method="POST">
+          <div class="form-group">
+            <label>نام و نام خانوادگی *</label>
+            <input type="text" name="name" required />
+          </div>
+          <div class="form-group">
+            <label>شماره تماس *</label>
+            <input type="tel" name="phone" required />
+          </div>
+          <div class="form-group">
+            <label>تاریخ رزرو *</label>
+            <input type="date" name="date" required />
+          </div>
+          <div class="form-group">
+            <label>ساعت رزرو *</label>
+            <input type="time" name="time" required />
+          </div>
+          <div class="form-group">
+            <label>تعداد نفرات *</label>
+            <select name="persons" required>
+              <option>۱ نفر</option>
+              <option>۲ نفر</option>
+              <option>۳ نفر</option>
+              <option>۴ نفر</option>
+              <option>۵ نفر</option>
+              <option>۶ نفر</option>
+              <option>بیشتر از ۶ نفر</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>درخواست خاص (اختیاری)</label>
+            <textarea
+              name="note"
+              rows="4"
+              placeholder="مثلاً: کنار پنجره، تولد، سالگرد، غذای خاص..."
+            ></textarea>
+          </div>
+          <button type="submit">رزرو میز</button>
+        </form>
+
+        <div class="success-msg" id="successMsg">
+          رزرو شما با موفقیت ثبت شد به زودی با شما تماس می‌گیریم
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p style="margin-bottom: 1rem">
+        © ۱۴۰۴ Don Vittorio - تمامی حقوق محفوظ است
+      </p>
+      <div class="social-links">
+        <a href="https://t.me/Shabah110"><i class="fab fa-telegram"></i></a>
+        <a href="https://instagram.com/S.mahdi.aa"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="https://github.com/Shabah313"><i class="fab fa-github"></i></a>
+      </div>
+    </footer>
+
+    <script>
+      const form = document.querySelector("form");
+      form.addEventListener("submit", function (e) {
+        setTimeout(() => {
+          document.getElementById("successMsg").style.display = "block";
+          form.reset();
+        }, 800);
+      });
+    </script>
+  </body>
+</html>

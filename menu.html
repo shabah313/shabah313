@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>منوی کامل - Don Vittorio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=Lora&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --black: #0a0a0a;
+        --silver: #c0c0c0;
+        --olive: #6b8e23;
+        --cream: #f5f0e6;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Lora", serif;
+        background: var(--black);
+        color: var(--cream);
+        overflow-x: hidden;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif;
+        color: var(--silver);
+      }
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgb(24, 27, 17);
+        padding: 1rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid var(--silver);
+      }
+      .logo {
+        font-size: 2.4rem;
+        color: var(--silver);
+        font-family: "Cormorant Garamond";
+      }
+      .hamburger {
+        display: none;
+        cursor: pointer;
+        font-size: 2rem;
+        color: var(--silver);
+      }
+      .nav-links a {
+        color: var(--cream);
+        text-decoration: none;
+        margin: 0 1.5rem;
+        transition: 0.3s;
+      }
+      .nav-links a:hover {
+        color: var(--olive);
+      }
+      @media (max-width: 992px) {
+        .nav-links {
+          position: absolute;
+          top: 100%;
+          right: 0;
+          left: 0;
+          background: var(--black);
+          flex-direction: column;
+          display: none;
+          padding: 0;
+        }
+        .nav-links.active {
+          display: flex;
+        }
+        .nav-links a {
+          display: block;
+          padding: 1.2rem;
+          text-align: center;
+          border-bottom: 1px solid #446801;
+        }
+        .hamburger {
+          display: block;
+        }
+        .logo {
+          font-size: 2rem;
+        }
+      }
+
+      section {
+        padding: 100px 0;
+      }
+      h2 {
+        font-size: 3.5rem;
+        text-align: center;
+        margin-bottom: 4rem;
+        position: relative;
+        color: var(--silver);
+      }
+      h2::after {
+        content: "";
+        width: 100px;
+        height: 3px;
+        background: var(--olive);
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .category-title {
+        text-align: center;
+        color: var(--olive);
+        font-size: 2.2rem;
+        margin: 4rem 0 2rem;
+      }
+
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+      }
+      .menu-card {
+        background: rgba(20, 20, 20, 0.95);
+        border-radius: 18px;
+        overflow: hidden;
+        transition: 0.4s;
+        border: 1px solid #333;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      }
+      .menu-card:hover {
+        transform: translateY(-12px);
+        border-color: var(--olive);
+      }
+      .menu-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+      }
+      .menu-info {
+        padding: 1.8rem;
+        text-align: center;
+      }
+      .price {
+        color: var(--olive);
+        font-size: 1.7rem;
+        font-weight: bold;
+        margin: 1rem 0;
+      }
+      .add-to-cart {
+        background: var(--olive);
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 50px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .add-to-cart:hover {
+        background: #8fbc8f;
+      }
+
+      footer {
+        background: #111;
+        padding: 3rem 2rem;
+        text-align: center;
+        border-top: 3px solid var(--olive);
+      }
+      .social-links a {
+        color: var(--silver);
+        font-size: 2.4rem;
+        margin: 0 1.5rem;
+        transition: 0.3s;
+      }
+      .social-links a:hover {
+        color: var(--olive);
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">Don Vittorio</div>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html">خانه</a>
+        <a href="#menu">منو</a>
+        <a href="reserve.html">رزرو</a>
+        <a href="#">درباره ما</a>
+        <a href="#">تماس</a>
+      </div>
+      <div
+        class="hamburger"
+        onclick="document.getElementById('navLinks').classList.toggle('active')"
+      >
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+
+    <section id="menu" class="container">
+      <h2>منوی کامل</h2>
+
+      <!-- پیش‌غذا -->
+      <h3 class="category-title">پیش‌غذا</h3>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="imag/brok.png" alt="" />
+          <div class="menu-info">
+            <h3>بروسکتا پومودورو</h3>
+            <p>نان تست با گوجه و ریحان تازه</p>
+            <div class="price">۲۲۰,۰۰۰ تومان</div>
+            <button
+              class="add-to-cart"
+              onclick="addToCart('بروسکتا پومودورو',220000)"
+            >
+              افزودن
+            </button>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="imag/kaprez.png" alt="" />
+          <div class="menu-info">
+            <h3>کاپرز آلیولی</h3>
+            <p>زیتون و سیر با نان کراستی</p>
+            <div class="price">۲۴۰,۰۰۰ تومان</div>
+            <button
+              class="add-to-cart"
+              onclick="addToCart('کاپرز آلیولی',240000)"
+            >
+              افزودن
+            </button>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="imag/anty.png" alt="" />
+          <div class="menu-info">
+            <h3>آنتی‌پاستی</h3>
+            <p>بشقاب مخلوط پیش‌غذا</p>
+            <div class="price">۳۸۰,۰۰۰ تومان</div>
+            <button
+              class="add-to-cart"
+              onclick="addToCart('آنتی‌پاستی',380000)"
+            >
+              افزودن
+            </button>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="imag/aranchi.png" alt="" />
+          <div class="menu-info">
+            <h3>آرانچینی</h3>
+            <p>توپک برنجی با پنیر</p>
+            <div class="price">۳۲۰,۰۰۰ تومان</div>
+            <button class="add-to-cart" onclick="addToCart('آرانچینی',320000)">
+              افزودن
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- غذای اصلی -->
+      <h3 class="category-title">غذای اصلی</h3>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="imag/karbona.png" alt="" />
+          <div class="menu-info">
+            <h3>پاستا کاربونارا</h3>
+            <p>با سس خامه و بیکن گیاهی</p>
+            <div class="price">۴۸۰,۰۰۰ تومان</div>
+            <button
+              class="add-to-cart"
+              onclick="addToCart('پاستا کاربونارا',480000)"
+            >
+              افزودن
+            </button>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="imag/marga.png" alt="" />
+          <div class="menu-info">
+            <h3>پیتزا مارگاریتا</h3>
+            <p>گوجه، موزارلا، ریحان</p>
+            <div class="price">۴۲۰,۰۰۰ تومان</div>
+            <button
+              class="add-to-cart"
+              onclick="addToCart('پیتزا مارگاریتا',420000)"
+            >
+              افزودن
+            </button>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="imag/gharch.png" alt="" />
+          <div class="menu-info">
+            <h3>ریسوتو قارچ</h3>
+            <p>برنج ایتالیایی با قارچ تازه</p>
+            <div class="price">۴۵۰,۰۰۰ تومان</div>
+            <button
+              class="add-to-cart"
+              onclick="addToCart('ریسوتو قارچ',450000)"
+            >
+              افزودن
+            </button>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="imag/lazania.png" alt="" />
+          <div class="menu-info">
+            <h3>لازانیا بولونز</h3>
+            <p>لایه‌های پاستا با سس گیاهی</p>
+            <div class="price">۴۹۰,۰۰۰ تومان</div>
+            <button
+              class="add-to-cart"
+              onclick="addToCart('لازانیا بولونز',490000)"
+            >
+              افزودن
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- دسر -->
+      <h3 class="category-title">دسر</h3>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="imag/tiramiso.png" alt="" />
+          <div class="menu-info">
+            <h3>تیرامیسو</h3>
+            <p>کیک قهوه با ماسکارپونه</p>
+            <div class="price">۱۸۰,۰۰۰ تومان</div>
+            <button class="add-to-cart" onclick="addToCart('تیرامیسو',180000)">
+              افزودن
+            </button>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="imag/panakota.png" alt="" />
+          <div class="menu-info">
+            <h3>پاناکوتا</h3>
+            <p>دسر خامه‌ای با سس توت</p>
+            <div class="price">۱۶۰,۰۰۰ تومان</div>
+            <button class="add-to-cart" onclick="addToCart('پاناکوتا',160000)">
+              افزودن
+            </button>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="imag/kanoly.png" alt="" />
+          <div class="menu-info">
+            <h3>کنولو سیسیلی</h3>
+            <p>شیرینی پرشده با ریکوتا</p>
+            <div class="price">۱۹۰,۰۰۰ تومان</div>
+            <button
+              class="add-to-cart"
+              onclick="addToCart('کنولو سیسیلی',190000)"
+            >
+              افزودن
+            </button>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="imag/afogato.png" alt="" />
+          <div class="menu-info">
+            <h3>افوگاتو</h3>
+            <p>اسپرسو روی ژلاتو وانیل</p>
+            <div class="price">۱۷۰,۰۰۰ تومان</div>
+            <button class="add-to-cart" onclick="addToCart('افوگاتو',170000)">
+              افزودن
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- نوشیدنی غیرالکلی -->
+      <h3 class="category-title">نوشیدنی</h3>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="imag/esperso.png" alt="" />
+          <div class="menu-info" style="padding-top: 5rem">
+            <h3>اسپرسو</h3>
+            <p class="price">۸۵,۰۰۰ تومان</p>
+            <button class="add-to-cart" onclick="addToCart('اسپرسو',85000)">
+              افزودن
+            </button>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="imag/kapochino.png" alt="" />
+          <div class="menu-info" style="padding-top: 5rem">
+            <h3>کاپوچینو</h3>
+            <p class="price">۱۱۰,۰۰۰ تومان</p>
+            <button class="add-to-cart" onclick="addToCart('کاپوچینو',110000)">
+              افزودن
+            </button>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="imag/limonad.png" alt="" />
+          <div class="menu-info" style="padding-top: 5rem">
+            <h3>لیمونچلو</h3>
+            <p class="price">۱۳۰,۰۰۰ تومان</p>
+            <button class="add-to-cart" onclick="addToCart('لیمونچلو ',130000)">
+              افزودن
+            </button>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="imag/moktel.png" alt="" />
+          <div class="menu-info" style="padding-top: 5rem">
+            <h3>سانگریا میوه‌ای</h3>
+            <p class="price">۱۶۰,۰۰۰ تومان</p>
+            <button
+              class="add-to-cart"
+              onclick="addToCart('سانگریا میوه‌ای',160000)"
+            >
+              افزودن
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p style="margin-bottom: 1rem">
+        © ۱۴۰۴ Don Vittorio - تمامی حقوق محفوظ است
+      </p>
+      <div class="social-links">
+        <a href="https://t.me/Shabah110"><i class="fab fa-telegram"></i></a>
+        <a href="https://instagram.com/S.mahdi.aa"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="https://github.com/Shabah313"><i class="fab fa-github"></i></a>
+      </div>
+    </footer>
+
+    <script>
+      let cart = JSON.parse(localStorage.getItem("donvittorio_cart")) || [];
+      function addToCart(name, price) {
+        const item = cart.find((i) => i.name === name);
+        item ? item.qty++ : cart.push({ name, price, qty: 1 });
+        localStorage.setItem("donvittorio_cart", JSON.stringify(cart));
+        alert(name + " به سبد اضافه شد ✅");
+      }
+    </script>
+  </body>
+</html>
